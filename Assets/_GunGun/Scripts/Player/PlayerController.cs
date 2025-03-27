@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 rotationTarget;
     public bool isPc;
 
+    private Health health;
+    
     private CharacterController characterController;
 
     public void OnMove(InputAction.CallbackContext context)
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        health = GetComponent<Health>();
     }
 
     private void Update()
@@ -104,5 +107,9 @@ public class PlayerController : MonoBehaviour
         characterController.Move(movement * Speed * Time.deltaTime);
     }
 
+    public void takeDamage(float damage)
+    {
+        health.TakeDamage(damage);
+    }
 
 }
