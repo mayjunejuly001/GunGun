@@ -72,7 +72,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   player: {fileID: 0}
-  detectionRange: 1000
+  detectionRange: 1001
   attackRange: 15
   attackCooldown: 1.5
   damage: 20

@@ -99,7 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e43a1ff3675584787fb2592945f747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyRate: 2
+  damage: 25
+  lifetime: 5
 --- !u!1 &8893660358545793085
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e43a1ff3675584787fb2592945f747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyRate: 2
+  damage: 30
+  lifetime: 5
 --- !u!54 &-6136128150968269658
 Rigidbody:
   m_ObjectHideFlags: 0

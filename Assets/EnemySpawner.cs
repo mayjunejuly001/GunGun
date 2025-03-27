@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     public float spawnDelay = 1f;         // Delay between spawns
     public float waveDelay = 5f;          // Delay before next wave starts
     public Transform playerTransform;
-    public Vector2Int spawnRange = new Vector2Int(-200 , 200);
+    public Vector2Int spawnRange = new Vector2Int(100, 300);
 
     private int currentWave = 0;
     private List<GameObject> activeEnemies = new List<GameObject>();
@@ -51,8 +51,8 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy(GameObject enemyPrefab)
     {
-
-        Vector3 spawnPos = playerTransform.position +  new Vector3(Random.Range(spawnRange.x , spawnRange.y), 0, Random.Range(spawnRange.x, spawnRange.y));
+        
+        Vector3 spawnPos = playerTransform.position +  new Vector3(getRandomSign() * Random.Range(spawnRange.x , spawnRange.y), 0, getRandomSign() * Random.Range(spawnRange.x, spawnRange.y));
         GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
         EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
         enemyAI.player = FindFirstObjectByType<PlayerController>();
@@ -60,5 +60,10 @@ public class EnemySpawner : MonoBehaviour
 
         // Remove enemy from list when it dies
         enemy.GetComponent<Health>().OnDeath += () => activeEnemies.Remove(enemy);
+    }
+
+     private int getRandomSign()
+    {
+        return Random.Range(0,100) < 50 ? -1 : 1;
     }
 }

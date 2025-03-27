@@ -8,7 +8,7 @@ public class EnemyAI : MonoBehaviour
     public float detectionRange = 10f;  // Range at which enemy starts chasing
     public float attackRange = 2f;      // Range at which enemy attacks
     public float attackCooldown = 1.5f; // Time between attacks
-    public float damage = 20f;
+    public float meleeDamage = 20f;
     public Bullet bulletPrefab;
 
     private NavMeshAgent agent;
@@ -77,7 +77,7 @@ public class EnemyAI : MonoBehaviour
             if (type == EnemyType.Melee)
             {
              Debug.Log("Enemy attacks!"); // Replace with actual attack logic
-             player.takeDamage(damage);
+             player.takeDamage(meleeDamage);
             }
             else
             {

@@ -49,6 +49,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7804482527911775979, guid: 460ab254063443d4bacf70cd4599ed84, type: 3}
+      propertyPath: damage
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804482527911775979, guid: 460ab254063443d4bacf70cd4599ed84, type: 3}
       propertyPath: lifetime
       value: 10
       objectReference: {fileID: 0}
