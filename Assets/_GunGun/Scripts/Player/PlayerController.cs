@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();
-    } 
-    
+    }
+
     public void OnMouseLook(InputAction.CallbackContext context)
     {
         mouseAim = context.ReadValue<Vector2>();
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(mouseAim);
 
-            if (Physics.Raycast(ray , out hit))
+            if (Physics.Raycast(ray, out hit))
             {
                 rotationTarget = hit.point;
             }
@@ -62,12 +62,12 @@ public class PlayerController : MonoBehaviour
 
     public void movePlayer()
     {
-        
+
         Vector3 movement = new Vector3(move.x, 0f, move.y);
         if (movement != Vector3.zero)
         {
-            
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
         }
         //transform.Translate(movement * Speed * Time.deltaTime, Space.World);
         characterController.Move(movement * Speed * Time.deltaTime);
