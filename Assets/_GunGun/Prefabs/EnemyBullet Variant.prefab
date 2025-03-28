@@ -56,9 +56,17 @@ PrefabInstance:
       propertyPath: lifetime
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8105039573071766055, guid: 460ab254063443d4bacf70cd4599ed84, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8893660358545793085, guid: 460ab254063443d4bacf70cd4599ed84, type: 3}
       propertyPath: m_Name
       value: EnemyBullet Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893660358545793085, guid: 460ab254063443d4bacf70cd4599ed84, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

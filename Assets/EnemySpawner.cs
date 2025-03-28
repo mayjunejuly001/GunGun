@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
     public float waveDelay = 5f;          // Delay before next wave starts
     public Transform playerTransform;
     public Vector2Int spawnRange = new Vector2Int(100, 300);
-
+    public static event System.Action<EnemyAI> onEnemyDie;
     private int currentWave = 0;
     private List<GameObject> activeEnemies = new List<GameObject>();
 
@@ -51,19 +51,34 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy(GameObject enemyPrefab)
     {
-        
+        if (playerTransform == null)
+        {
+            return;
+        }
+
         Vector3 spawnPos = playerTransform.position +  new Vector3(getRandomSign() * Random.Range(spawnRange.x , spawnRange.y), 0, getRandomSign() * Random.Range(spawnRange.x, spawnRange.y));
         GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
         EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
+
         enemyAI.player = FindFirstObjectByType<PlayerController>();
+      
+    
+        enemyAI.player.onPlayerDies += () => { enemyAI.player = null; };
+    
         activeEnemies.Add(enemy);
 
         // Remove enemy from list when it dies
-        enemy.GetComponent<Health>().OnDeath += () => activeEnemies.Remove(enemy);
+        enemy.GetComponent<Health>().OnDeath += () => OnEnemyDead(enemyAI);
     }
 
      private int getRandomSign()
     {
         return Random.Range(0,100) < 50 ? -1 : 1;
+    }
+
+    private void OnEnemyDead(EnemyAI enemy)
+    {
+        activeEnemies.Remove(enemy.gameObject);
+        onEnemyDie?.Invoke(enemy);
     }
 }

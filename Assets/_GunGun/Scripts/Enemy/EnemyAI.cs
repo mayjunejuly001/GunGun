@@ -87,7 +87,22 @@ public class EnemyAI : MonoBehaviour
 
            nextAttackTime = Time.time + attackCooldown;  
         }
+    
     }
+
+
+    
+
+    private void OnDisable()
+    {
+        if (player!= null)
+        {
+        player.onPlayerDies -= () => { player = null; };
+            
+        }
+    }
+
+
 }
 
 

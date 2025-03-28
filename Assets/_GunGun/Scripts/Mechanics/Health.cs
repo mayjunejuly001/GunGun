@@ -30,4 +30,9 @@ public class Health : MonoBehaviour
         OnDeath?.Invoke(); // Notify the spawner
         Destroy(gameObject);
     }
+
+    public float gethealthFraction()
+    {
+        return currentHealth / maxHealth;
+    }
 }
