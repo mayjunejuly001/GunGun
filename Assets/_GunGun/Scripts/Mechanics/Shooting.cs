@@ -3,13 +3,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerShooting : MonoBehaviour
 {
-    public GameObject bulletPrefab;  // Bullet prefab
-    public GameObject explosiveBulletPrefab;  // Bullet prefab
-    public Transform muzzlePoint;    // Bullet spawn point
-    public float bulletSpeed = 20f;  // Bullet velocity
-    public float fireRate = 0.2f;    // Time between shots
-    public float explosiveFireRate = 1f;    // Time between shots
-    public float launchAngle = 45f;   // Default launch angle
+    public GameObject bulletPrefab; 
+    public GameObject explosiveBulletPrefab; 
+    public Transform muzzlePoint;    
+    public float bulletSpeed = 20f;  
+    public float fireRate = 0.2f;   
+    public float explosiveFireRate = 1f;    
+    public float launchAngle = 45f;  
 
     private float lastExplosiveFireTime;
     private float nextFireTime = 0f;
@@ -27,12 +27,12 @@ public class PlayerShooting : MonoBehaviour
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        // When Fire button is pressed, set isFiring to true
+        
         if (context.phase == InputActionPhase.Started)
         {
             isFiring = true;
         }
-        // When Fire button is released, stop firing
+       
         else if (context.phase == InputActionPhase.Canceled)
         {
             isFiring = false;

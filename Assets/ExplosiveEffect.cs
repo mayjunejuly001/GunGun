@@ -5,13 +5,13 @@ public class ExplosiveEffect : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
     public float animationDuration = 0.5f;
-    public float startAlpha = 1f; // 100% opacity
+    public float startAlpha = 1f; 
     private Vector3 initialScale;
 
     private void Awake()
     {
        
-        initialScale = transform.localScale; // Store initial scale
+        initialScale = transform.localScale; 
     }
 
     private void Start()
@@ -26,24 +26,24 @@ public class ExplosiveEffect : MonoBehaviour
 
         while (elapsedTime < animationDuration)
         {
-            float t = elapsedTime / animationDuration; // Normalize time (0 to 1)
+            float t = elapsedTime / animationDuration; 
 
-            // Reduce alpha
+           
             spriteColor.a = Mathf.Lerp(startAlpha, 0f, t);
             spriteRenderer.color = spriteColor;
 
-            // Reduce scale
+      
             transform.localScale = Vector3.Lerp(initialScale, Vector3.zero, t);
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        // Ensure final values
+      
         spriteRenderer.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, 0f);
         transform.localScale = Vector3.zero;
 
-        Destroy(gameObject); // Remove effect after animation
+        Destroy(gameObject); 
     }
 
     public void setRendererScale(float scale)

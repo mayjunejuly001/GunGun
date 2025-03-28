@@ -3,8 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float damage = 25f;
-    public float lifetime = 5f; // Destroy bullet after 5 sec
-
+    public float lifetime = 5f; 
     void Start()
     {
         Destroy(gameObject, lifetime);
@@ -19,6 +18,6 @@ public class Bullet : MonoBehaviour
             health.TakeDamage(damage);
         }
 
-        Destroy(gameObject); // Destroy bullet after impact
+        Destroy(gameObject); 
     }
 }

@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
     public float maxHealth = 100f;
     private float currentHealth;
 
-    public event Action OnDeath;  // Notify others when this dies
+    public event Action OnDeath;  
 
     void Start()
     {
@@ -27,7 +27,7 @@ public class Health : MonoBehaviour
     void Die()
     {
         Debug.Log(gameObject.name + " died!");
-        OnDeath?.Invoke(); // Notify the spawner
+        OnDeath?.Invoke(); 
         Destroy(gameObject);
     }
 

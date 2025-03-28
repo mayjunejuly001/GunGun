@@ -4,10 +4,9 @@ public class ExplosiveBullet : MonoBehaviour
 {
     
   
-    public float explosionRadius = 5f; // Explosion effect radius
-    public float explosionDamage = 50f; // Damage dealt in AoE
-    public GameObject explosionEffect; // Optional particle effect prefab
-
+    public float explosionRadius = 5f; 
+    public float explosionDamage = 50f; 
+    public GameObject explosionEffect; 
     private Rigidbody rb;
 
     

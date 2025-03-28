@@ -113,13 +113,13 @@ public class PlayerController : MonoBehaviour
         isShieldActive = true;
         shield.SetActive(true);
 
-        yield return new WaitForSeconds(shieldDuration); // Wait for shield duration
+        yield return new WaitForSeconds(shieldDuration); 
 
         isShieldActive = false;
         shield.SetActive(false);
         isShieldOnCooldown = true;
 
-        yield return new WaitForSeconds(shieldCooldown); // Cooldown before reactivating
+        yield return new WaitForSeconds(shieldCooldown); 
 
         isShieldOnCooldown = false;
     }

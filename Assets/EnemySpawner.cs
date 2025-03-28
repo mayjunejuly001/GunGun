@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject meleeEnemyPrefab;   // Melee enemy prefab
-    public GameObject rangedEnemyPrefab;  // Ranged enemy prefab
-    public int baseMeleeCount = 15;        // Base melee enemies per wave
-    public int baseRangedCount = 10;       // Base ranged enemies per wave
-    public int maxWaves = 10;             // Max waves before endless mode
-    public float spawnDelay = 1f;         // Delay between spawns
-    public float waveDelay = 5f;          // Delay before next wave starts
+    public GameObject meleeEnemyPrefab;  
+    public GameObject rangedEnemyPrefab;  
+    public int baseMeleeCount = 15;        
+    public int baseRangedCount = 10;       
+    public int maxWaves = 10;             
+    public float spawnDelay = 1f;       
+    public float waveDelay = 5f;          
     public Transform playerTransform;
     public Vector2Int spawnRange = new Vector2Int(100, 300);
     public static event System.Action<EnemyAI> onEnemyDie;

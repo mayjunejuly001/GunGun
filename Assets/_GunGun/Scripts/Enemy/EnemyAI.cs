@@ -4,10 +4,10 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     public EnemyType type;
-    public PlayerController player;            // Target (player)
-    public float detectionRange = 10f;  // Range at which enemy starts chasing
-    public float attackRange = 2f;      // Range at which enemy attacks
-    public float attackCooldown = 1.5f; // Time between attacks
+    public PlayerController player;           
+    public float detectionRange = 10f;  
+    public float attackRange = 2f;      
+    public float attackCooldown = 1.5f; 
     public float meleeDamage = 20f;
     public Bullet bulletPrefab;
 
@@ -76,7 +76,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (type == EnemyType.Melee)
             {
-             Debug.Log("Enemy attacks!"); // Replace with actual attack logic
+             Debug.Log("Enemy attacks!"); 
              player.takeDamage(meleeDamage);
             }
             else
